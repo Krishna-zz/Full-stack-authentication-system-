@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import {registerUser} from './Services/Api'
 
 function Register() {
 
@@ -10,8 +10,15 @@ function Register() {
       setFormdata({...formdata, [e.target.name]: e.target.value})
    }
 
-   const handleSubmit = (e) => {
+   const handleSubmit = async(e) => {
+      e.preventDefault()
 
+      try {
+         const {data} = await registerUser(formdata)
+         alert(data.message)
+      } catch (error) {
+          alert(error.response?.data?.message || 'Registration failed');
+      }
    }
 
   return (
