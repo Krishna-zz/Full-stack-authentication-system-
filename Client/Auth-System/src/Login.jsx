@@ -12,7 +12,7 @@ function Login(){
     const handleSubmit = async(e) => {
         e.preventDefault()
         try {
-            const {data} = await loginUser(formdata)
+            const data = await loginUser(formdata)
             localStorage.setItem('token', data.token)
             alert('Login Successful')
         } catch (error) {
@@ -32,7 +32,7 @@ function Login(){
                     <input type="text" name="email" placeholder="Email" onChange={handleChange} className="px-4 py-2 rounded-2xl shadow-2xl ml-2 mb-6" />
                     <br />
                     <label htmlFor="">Password:</label>
-                    <input type="text" name="password" placeholder="Password" onChange={handleChange} className="px-4 py-2 rounded-2xl shadow-2xl ml-1 mb-6" />
+                    <input type="password" name="password" placeholder="Password" onChange={handleChange} className="px-4 py-2 rounded-2xl shadow-2xl ml-1 mb-6" />
 
                     <button type="submit" className="bg-green-500 py-2 px-4 rounded-2xl shadow-2xl">
                         Login

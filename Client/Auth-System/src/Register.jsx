@@ -14,7 +14,7 @@ function Register() {
       e.preventDefault()
 
       try {
-         const {data} = await registerUser(formdata)
+         const data = await registerUser(formdata)
          alert(data.message)
       } catch (error) {
           alert(error.response?.data?.message || 'Registration failed');
